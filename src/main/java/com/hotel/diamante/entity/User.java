@@ -29,13 +29,10 @@ public class User implements UserDetails {
     private String email;
     @NotBlank(message = "Telefone não pode ser nulo")
     private String phoneNumber;
-    private String PhoneNumber;
     private String password;
     private String role;
-
-    private List<Room> roomList = new ArrayList<Room>();
     @OneToMany(mappedBy ="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Booking> bookingList = new ArrayList<Booking>();
+    private List<Booking> booking = new ArrayList<Booking>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,21 +1,19 @@
 package com.hotel.diamante.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "room")
+
+@Table(name = "rooms")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +21,11 @@ public class Room {
     private int roomNumber;
     private  String roomType;
     private BigDecimal price;
-    private String Photo;
+    private String photo;
     private String description;
 
-    private List<Booking>bookingList= new ArrayList<Booking>();
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Booking> bookings = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -35,7 +34,7 @@ public class Room {
                 ", roomNumber=" + roomNumber +
                 ", roomType='" + roomType + '\'' +
                 ", price=" + price +
-                ", Photo='" + Photo + '\'' +
+                ", Photo='" + photo + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
