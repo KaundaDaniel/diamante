@@ -21,14 +21,9 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = " data de entrada não pode nula")
     private LocalDate checkeIn;
-    @NotBlank(message = "data de saída não pode nula")
-    @Future(message = " data de saída não pode ser nopassado")
-    private LocalDate checkOut;
-    @Min(value = 1, message = "O numero de adultos não pode ser 0")
+     private LocalDate checkOut;
     private int numberOfAdults;
-    @Min(value = 0, message = "O numero de crianças não pode ser menos que 0")
     private int numberOfChildren;
     private int totalNumberGuest;
     private String bookingConfirmationCOde;
@@ -63,8 +58,7 @@ public class Booking {
                 ", numberOfChildren=" + numberOfChildren +
                 ", totalNumberGuest=" + totalNumberGuest +
                 ", bookingConfirmationCOde='" + bookingConfirmationCOde + '\'' +
-                ", user=" + user +
-                ", room=" + room +
+
                 '}';
     }
 }
