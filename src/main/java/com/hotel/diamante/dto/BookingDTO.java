@@ -30,7 +30,6 @@ public class BookingDTO {
     private int numberOfChildren;
     private int totalNumberGuest;
     private String bookingConfirmationCOde;
-
     private UserDTO user;
     private RoomDTO room;
 }

@@ -32,6 +32,9 @@ public class User implements UserDetails {
     private String PhoneNumber;
     private String password;
     private String role;
+
+    private List<Room> roomList = new ArrayList<Room>();
+    @OneToMany(mappedBy ="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Booking> bookingList = new ArrayList<Booking>();
 
     @Override
