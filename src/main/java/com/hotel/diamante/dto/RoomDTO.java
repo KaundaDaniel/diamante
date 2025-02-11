@@ -17,7 +17,7 @@ public class RoomDTO {
     private int roomNumber;
     private  String roomType;
     private BigDecimal price;
-    private String Photo;
+    private String photoUrl;
     private String description;
     private List<BookingDTO> bookingList= new ArrayList<BookingDTO>();
 

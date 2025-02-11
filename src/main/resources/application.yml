@@ -8,3 +8,13 @@ spring:
     hibernate:
       ddl-auto: update  # or create, create-drop, validate
     show-sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  mvc:
+    static-path-pattern: /images/**
+  web:
+    resources:
+      static-locations: file:/uploads/

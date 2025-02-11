@@ -20,7 +20,7 @@ import java.time.LocalDate;
 public class BookingDTO {
     private Long id;
     @NotBlank(message = " data de entrada não pode nula")
-    private LocalDate checkeIn;
+    private LocalDate checkIn;
     @NotBlank(message = "data de saída não pode nula")
     @Future(message = " data de saída não pode ser nopassado")
     private LocalDate checkOut;
@@ -29,7 +29,7 @@ public class BookingDTO {
     @Min(value = 0, message = "O numero de crianças não pode ser menos que 0")
     private int numberOfChildren;
     private int totalNumberGuest;
-    private String bookingConfirmationCOde;
+    private String bookingConfirmationCode;
     private UserDTO user;
     private RoomDTO room;
 }

@@ -21,7 +21,7 @@ public class Room {
     private int roomNumber;
     private  String roomType;
     private BigDecimal price;
-    private String photo;
+    private String photoUrl;
     private String description;
 
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -34,7 +34,7 @@ public class Room {
                 ", roomNumber=" + roomNumber +
                 ", roomType='" + roomType + '\'' +
                 ", price=" + price +
-                ", Photo='" + photo + '\'' +
+                ", Photo='" + photoUrl + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
