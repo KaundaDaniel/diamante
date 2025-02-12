@@ -34,7 +34,7 @@ public class Utils {
                 .build();
     }
 
-    public static User mapUserDTOToUserEntity(UserDTO userDTO){
+    public static User mapUserEntityToUserDTO(UserDTO userDTO){
         return User.builder()
                 .id(userDTO.getId())
                 .email(userDTO.getEmail())
@@ -43,7 +43,7 @@ public class Utils {
                 .role(userDTO.getRole())
                 .build();
     }
-    public static RoomDTO mapRoomEntityToRoom(Room room){
+    public static RoomDTO mapRoomEntityToRoomDTO(Room room){
         return RoomDTO.builder()
                .id(room.getId())
                .roomNumber(room.getRoomNumber())
@@ -71,13 +71,13 @@ public class Utils {
                 .photoUrl(room.getPhotoUrl())
                 .build();
         if(room.getBookings()!=null){
-            roomDTO.setBookingList(room.getBookings().stream().map(Utils::mapBookingEntityToBookingsDTO).collect(Collectors.toList()));
+            roomDTO.setBookingList(room.getBookings().stream().map(Utils::mapBookingEntityToBookingDTO).collect(Collectors.toList()));
         }
         return roomDTO;
 
     }
 
-    private static BookingDTO mapBookingEntityToBookingsDTO(Booking booking) {
+    private static BookingDTO mapBookingEntityToBookingDTO(Booking booking) {
         BookingDTO bookDTO = BookingDTO.builder()
                 .id(booking.getId())
                 .checkIn(booking.getCheckIn())
@@ -140,10 +140,10 @@ public class Utils {
         return userList.stream().map(Utils::mapUserEntityToUserDTO).collect(Collectors.toList());
     }
     public static List<RoomDTO> mapRoomListEntityToRoomListDTO(List<Room> roomList){
-        return roomList.stream().map(Utils::mapRoomEntityToRoom).collect(Collectors.toList());
+        return roomList.stream().map(Utils::mapRoomEntityToRoomDTO).collect(Collectors.toList());
     }
     public static List<BookingDTO> mapBookingListEntityToBookingListDTO(List<Booking> bookingList){
-        return bookingList.stream().map(Utils::mapBookingEntityToBookingsDTO).collect(Collectors.toList());
+        return bookingList.stream().map(Utils::mapBookingEntityToBookingDTO).collect(Collectors.toList());
     }
 
 
