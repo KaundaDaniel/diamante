@@ -50,9 +50,6 @@ public class RoomService implements IRoomService {
                 response.setStatusCode(200);
                 response.setMessage("Quarto adicionada com sucesso");
                 response.setRoom(roomDTO);
-
-                response.setStatusCode(200);
-                response.setMessage("Sala adicionada com sucesso");
             }catch (CustomerException e) {
                 response.setStatusCode(404);
                 response.setMessage(e.getMessage());
@@ -69,7 +66,7 @@ public class RoomService implements IRoomService {
         Response response = new Response();
         try {
             Room room = roomRepository.findById(roomId).orElseThrow(() -> new CustomerException("Quarto não encontrado"));
-            if (photo!= null) {
+            if (photo!= null && !photo.isEmpty()) {
                 String photoUrl = saveRoomImage(photo);
                 room.setPhotoUrl(photoUrl);
             }
@@ -208,7 +205,6 @@ public class RoomService implements IRoomService {
                 Files.deleteIfExists(filePath);
             }
         } catch (IOException e) {
-            // Log error but don't throw - this is cleanup code
             e.printStackTrace();
         }
     }

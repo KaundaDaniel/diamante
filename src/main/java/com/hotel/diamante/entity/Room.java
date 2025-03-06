@@ -9,7 +9,8 @@ import java.util.List;
 
 
 @Table(name = "rooms")
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

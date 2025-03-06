@@ -15,7 +15,7 @@ public class Utils {
     private static  final String ALFPHANUMERIC="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     private static final SecureRandom rand = new SecureRandom();
 
-    private String generateRandomAlphanumeric(int length){
+    public static String generateRandomAlphanumeric(int length){
         StringBuilder stringBuilder= new StringBuilder();
         for (int i=0; i<length; i++){
             int randomIndex=rand.nextInt(ALFPHANUMERIC.length());
@@ -25,7 +25,7 @@ public class Utils {
         return stringBuilder.toString();
     }
     public static UserDTO mapUserEntityToUserDTO(User user){
-        return UserDTO.builder()
+        return UserDTO .builder()
                 .id(user.getId())
                 .email(user.getEmail())
                 .name(user.getName())
@@ -77,7 +77,7 @@ public class Utils {
 
     }
 
-    private static BookingDTO mapBookingEntityToBookingDTO(Booking booking) {
+    public static BookingDTO mapBookingEntityToBookingDTO(Booking booking) {
         BookingDTO bookDTO = BookingDTO.builder()
                 .id(booking.getId())
                 .checkIn(booking.getCheckIn())
